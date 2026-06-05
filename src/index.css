@@ -211,8 +211,8 @@ a {
 }
 
 .hero-desk {
-  min-height: 16rem;
-  transform: scale(0.92);
+  min-height: 18rem;
+  overflow: visible;
   border-radius: 1.65rem;
   background:
     linear-gradient(
@@ -231,6 +231,31 @@ a {
   border-radius: 999px;
   background: rgba(255, 141, 183, 0.22);
   filter: blur(14px);
+}
+
+.desk-illustration {
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 18px 22px rgba(105, 64, 75, 0.1));
+}
+
+@media (min-width: 1024px) {
+  .hero-section {
+    height: clamp(20rem, 42vh, 24rem);
+    max-height: 45vh;
+  }
+
+  .hero-grid {
+    height: 100%;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: center;
+  }
+
+  .hero-desk {
+    align-self: center;
+    min-height: min(18rem, 36vh);
+    transform: translateY(-0.45rem);
+  }
 }
 
 .note {
@@ -480,7 +505,7 @@ a {
 
 @media (max-width: 900px) {
   .hero-desk {
-    min-height: 30rem;
+    min-height: 24rem;
   }
 
   .note-three {
@@ -495,7 +520,7 @@ a {
 
 @media (max-width: 640px) {
   .hero-desk {
-    min-height: 26rem;
+    min-height: 18rem;
   }
 
   .note-one,

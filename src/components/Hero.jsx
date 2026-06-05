@@ -1,3 +1,5 @@
+import DeskIllustration from "./DeskIllustration";
+
 const badges = [
   "School First Rank",
   "CGPA: 9.15",
@@ -39,42 +41,9 @@ export default function Hero() {
             ))}
           </div>
         </div>
-        <div className="hero-desk relative z-10">
-          <div className="note note-one">Ship something cute</div>
-          <div className="note note-two">
-            <span>IDEA</span>
-            <span>↓</span>
-            <span>CODE</span>
-            <span>↓</span>
-            <span>DEPLOY</span>
-          </div>
-          <div className="note note-three">
-            <span>Users</span>
-            <span>↓</span>
-            <strong>API Gateway</strong>
-            <div className="mt-3 grid grid-cols-3 gap-2 text-[10px]">
-              <span>Auth</span>
-              <span>Plan</span>
-              <span>Device</span>
-            </div>
-          </div>
 
-          <div className="laptop">
-            <div className="laptop-screen">
-              <code>
-                <span>&gt; building</span>
-                <span>&gt; learning</span>
-                <span>&gt; shipping</span>
-                <span>&gt; repeating</span>
-              </code>
-            </div>
-          </div>
-          <div className="desk-mug">♡</div>
-          <div className="desk-vase">
-            <span />
-            <span />
-            <span />
-          </div>
+        <div className="hero-desk relative z-10" aria-hidden="false">
+          <DeskIllustration />
         </div>
       </div>
     </section>
