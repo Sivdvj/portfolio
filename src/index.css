@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #fff8fb;
+  --pink-100: #ffe9f2;
+  --pink-200: #ffd3e5;
+  --pink-300: #ffb8d4;
+  --accent: #ff6ea8;
+}
