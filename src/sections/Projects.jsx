@@ -4,7 +4,7 @@ import { projects } from "../data/projects";
 
 export default function Projects() {
   return (
-    <section id="projects" className="section-shell">
+    <section id="projects" className="section-shell projects-section">
       <SectionHeading eyebrow="Things I've Built" title="Featured Projects">
         <p>
           A tiny gallery of systems that are practical, shipped, and still

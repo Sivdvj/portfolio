@@ -1,4 +1,4 @@
-function ProjectVisual({ tone, title }) {
+function ProjectVisual({ tone }) {
   if (tone === "terminal") {
     return <div className="project-visual"></div>;
   }
@@ -13,7 +13,7 @@ function ProjectVisual({ tone, title }) {
 export default function ProjectCard({ project }) {
   return (
     <article className="group overflow-hidden rounded-3xl border border-[#F5C9D9] bg-white/80 shadow-[0_16px_45px_rgba(255,141,183,0.13)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(255,110,168,0.2)]">
-      <ProjectVisual tone={project.imageTone} title={project.title} />
+      <ProjectVisual tone={project.imageTone} />
       <div className="p-6">
         <div className="mb-4 flex items-start justify-between gap-4">
           <h3 className="font-serif text-3xl text-[#2A2024]">

@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden border-b border-[#F5C9D9] px-6 py-16 lg:px-12 lg:py-20"
+      className="hero-section relative overflow-hidden border-b border-[#F5C9D9] px-6 py-6 lg:px-12 lg:py-2"
     >
       <div className="petal-field" aria-hidden="true">
         {Array.from({ length: 16 }).map((_, index) => (
@@ -17,21 +17,21 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="grid items-center gap-12 xl:grid-cols-[0.9fr_1.1fr]">
-        <div className="relative z-10 max-w-3xl">
-          <div className="mb-7 inline-flex items-center rounded-full border border-[#F5C9D9] bg-white/72 px-4 py-2 text-sm font-extrabold text-[#FF6EA8] shadow-sm">
+      <div className="hero-grid grid items-start gap-4 xl:grid-cols-[1fr_1fr]">
+        <div className="hero-copy relative z-10 max-w-2xl">
+          <div className="mb-3 inline-flex items-center rounded-full border border-[#F5C9D9] bg-white/72 px-4 py-1.5 text-sm font-extrabold text-[#FF6EA8] shadow-sm">
             ✿ TCS Intern • VIT Chennai
           </div>
-          <h1 className="font-serif text-5xl leading-[0.98] text-[#151014] sm:text-7xl lg:text-8xl">
+          <h1 className="font-serif leading-[0.98] text-[#151014] text-5xl sm:text-6xl lg:text-7xl">
             I build things that{" "}
             <span className="text-[#FF6EA8]">stay awake after</span> I go to
             sleep.
           </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-[#493D42] sm:text-xl">
+          <p className="mt-3 max-w-2xl text-lg leading-7 text-[#493D42] sm:text-xl">
             Software Engineer focused on backend systems, real-time
             collaboration, and full-stack applications.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-4 flex flex-wrap gap-2">
             {badges.map((badge) => (
               <span className="badge-chip" key={badge}>
                 {badge}
@@ -39,7 +39,6 @@ export default function Hero() {
             ))}
           </div>
         </div>
-
         <div className="hero-desk relative z-10">
           <div className="note note-one">Ship something cute</div>
           <div className="note note-two">

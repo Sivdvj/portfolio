@@ -1,7 +1,6 @@
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Sidebar from "./components/Sidebar";
-import Contact from "./sections/Contact";
 import Projects from "./sections/Projects";
 
 export default function App() {
