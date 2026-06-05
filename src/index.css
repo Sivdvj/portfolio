@@ -58,12 +58,12 @@ a {
 
 .section-shell {
   position: relative;
-  padding: 4.5rem 1.5rem;
+  padding: 2rem 1.5rem;
 }
 
 @media (min-width: 1024px) {
   .section-shell {
-    padding: 5rem 3rem;
+    padding: 2rem 2.5rem;
   }
 
   .projects-section {
@@ -241,20 +241,21 @@ a {
 
 @media (min-width: 1024px) {
   .hero-section {
-    height: clamp(20rem, 42vh, 24rem);
-    max-height: 45vh;
+    height: 50vh;
+    min-height: 420px;
+    max-height: 520px;
   }
 
   .hero-grid {
     height: 100%;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: center;
   }
 
   .hero-desk {
     align-self: center;
-    min-height: min(18rem, 36vh);
-    transform: translateY(-0.45rem);
+    min-height: 16rem;
+    transform: scale(0.94);
   }
 }
 

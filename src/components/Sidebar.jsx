@@ -5,7 +5,8 @@ const navItems = [
 
 export default function Sidebar() {
   return (
-    <aside className="z-30 border-[#F5C9D9] bg-[#FFF7FA]/92 px-5 py-5 backdrop-blur-xl lg:sticky lg:top-0 lg:h-screen lg:w-80 lg:border-r lg:px-7 lg:py-8">
+    <aside className="z-30 border-[#F5C9D9] bg-[#FFF7FA]/92 px-5 py-5 backdrop-blur-xl lg:sticky lg:top-0 lg:h-screen lg:w-62.5 lg:border-r lg:px-6 lg:py-6">
+      {" "}
       <div className="flex items-center justify-between gap-4 lg:block">
         <a className="group flex items-center gap-3" href="#home">
           <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#FFE4EF] text-2xl text-[#FF6EA8] shadow-inner">
@@ -28,7 +29,6 @@ export default function Sidebar() {
           Resume
         </a>
       </div>
-
       <nav className="mt-6 flex gap-2 overflow-x-auto pb-2 lg:mt-12 lg:grid lg:overflow-visible lg:pb-0">
         {navItems.map((item) => (
           <a className="nav-link" href={item.href} key={item.href}>
@@ -37,7 +37,6 @@ export default function Sidebar() {
           </a>
         ))}
       </nav>
-
       <div className="terminal-card mt-8 hidden lg:block">
         <div className="mb-5 flex items-center justify-between">
           <p className="font-mono text-sm font-bold text-[#2A2024]">$ whoami</p>
@@ -60,7 +59,6 @@ export default function Sidebar() {
           <span className="inline-block h-5 w-2 animate-pulse bg-[#2A2024]" />
         </div>
       </div>
-
       <div className="mt-8 hidden lg:block">
         <p className="mb-4 text-sm font-bold text-[#2A2024]">Let's connect</p>
         <div className="flex gap-3">
