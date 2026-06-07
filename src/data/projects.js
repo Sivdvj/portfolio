@@ -1,67 +1,63 @@
+// import codecollabImage from "../assets/codecollab.png";
+// import blushboardImage from "../assets/blushboard.png";
+// import telecomImage from "../assets/telecom.png";
+
 export const projects = [
   {
     title: "CodeCollab",
-    description:
-      "A real-time collaborative code editor where multiple users can write code together, see each other's changes instantly, track live cursor positions, and execute code in a shared workspace.",
-    imageTone: "terminal",
-    links: [
-      { label: "GitHub", href: "#" },
-      { label: "Live", href: "#" },
-    ],
+    category: "Real-Time Systems",
+
+    image: "hi",
+
+    summary:
+      "A collaborative code editor supporting live synchronization, cursor tracking, room management, and Dockerized deployment.",
+
+    github: "YOUR_GITHUB_LINK",
+    demo: "https://cc.sivv.me",
+
+    tech: ["React", "Socket.IO", "Node.js", "Docker", "DigitalOcean"],
+
     highlights: [
-      "Real-time collaboration",
-      "Socket.IO synchronization",
+      "Real-time collaborative editing",
       "Live cursor tracking",
-      "Room management",
-      "Docker deployment",
-      "GitHub Actions CI/CD",
+      "Room ownership and moderation",
     ],
-    tech: ["React", "Node.js", "Socket.IO", "Docker", "DigitalOcean"],
   },
+
   {
     title: "Telecom E-Commerce Backend",
-    description:
-      "A Spring Boot microservices backend supporting telecom plans, devices, add-ons, authentication, and role-based access control.",
-    imageTone: "diagram",
-    links: [
-      { label: "GitHub", href: "#" },
-      { label: "Docs", href: "#" },
-    ],
+    category: "Backend Engineering",
+
+    image: "IH",
+
+    summary:
+      "Spring Boot microservices backend supporting authentication, telecom plans, devices, add-ons, and role-based access control.",
+
+    github: "YOUR_GITHUB_LINK",
+
+    tech: ["Java", "Spring Boot", "JWT", "Spring Security", "JPA"],
+
     highlights: [
       "JWT authentication",
-      "Spring Security",
       "Role-based authorization",
-      "CRUD operations",
-      "JPA relationships",
-      "REST APIs",
+      "Microservices architecture",
     ],
-    tech: ["Java", "Spring Boot", "Spring Security", "JPA", "JWT"],
   },
+
   {
     title: "BlushBoard",
-    description:
-      "A cozy productivity application built to learn React while creating tools I genuinely wanted to use.",
-    imageTone: "dashboard",
-    links: [
-      { label: "GitHub", href: "#" },
-      { label: "Preview", href: "#" },
-    ],
-    highlights: [
-      "Habit Tracker",
-      "Pomodoro Timer",
-      "Progress Analytics",
-      "Local Persistence",
-      "Future reminders/events system",
-    ],
-    tech: ["React", "Tailwind", "Docker", "Nginx", "Traefik"],
-  },
-];
+    category: "Personal Project",
 
-export const learningItems = [
-  "Spring Security",
-  "System Design",
-  "Redis",
-  "CRDTs",
-  "Distributed Systems",
-  "Backend Architecture",
+    image: "Hi",
+
+    summary:
+      "A cozy productivity corner featuring habit tracking, Pomodoro sessions, progress analytics, and a soft pink design system.",
+
+    github: "YOUR_GITHUB_LINK",
+    demo: "https://blushboard.sivv.me",
+
+    tech: ["React", "Tailwind", "Docker", "Nginx"],
+
+    highlights: ["Habit tracking", "Pomodoro timer", "Progress analytics"],
+  },
 ];
