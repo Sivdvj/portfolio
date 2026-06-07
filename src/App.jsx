@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import Sidebar from "./components/Sidebar";
 import Projects from "./sections/Projects";
 import Cursor from "./components/Cursor";
+import Experience from "./components/Experience";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Sidebar />
       <main className="paper-texture relative flex-1 overflow-x-hidden lg:h-screen lg:overflow-y-auto">
         <Hero />
+        <Experience />
         <Projects />
         <Footer />
       </main>

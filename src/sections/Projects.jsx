@@ -75,8 +75,8 @@ export default function Projects() {
         </a>
       </div>
 
-      <div className="grid gap-5 lg:grid-cols-2">
-        <div className="lg:col-span-2">
+      <div className="grid gap-5 lg:grid-cols-3">
+        <div className="lg:col-span-3">
           <FeaturedProjectCard project={featuredProject} />
         </div>
         {secondaryProjects.map((project) => (

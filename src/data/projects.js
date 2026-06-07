@@ -1,6 +1,8 @@
 import sentire from "../assets/sentire.png";
 import codecollab from "../assets/codecollab.png";
 import blushboard from "../assets/blushboard.png";
+import threejs from "../assets/threejs.png";
+
 export const projects = [
   {
     title: "CodeCollab",
@@ -9,36 +11,38 @@ export const projects = [
     image: codecollab,
     featured: true,
     summary:
-      "Real-time collaborative code editor with live cursors, room management, user presence tracking, and multi-user synchronization.",
+      "A real-time collaborative code editor where multiple users share a room, see each other's keystrokes instantly, track live cursor positions, and execute code in a shared workspace.",
     insight:
-      "Built synchronization from scratch using Socket.IO and in-memory room state — deliberately, to understand the hard parts before moving toward CRDTs.",
+      "Intentionally built synchronization from scratch using Socket.IO and in-memory room state — without Yjs, Liveblocks, or ShareDB — to understand the hard engineering problems before reaching for abstractions. Current approach is last-write-wins with full document broadcast; CRDT migration via Yjs is planned.",
     github: "https://github.com/Sivdvj/code-collab",
     demo: "https://cc.sivv.me",
     tech: [
       "React",
       "Node.js",
       "Socket.IO",
+      "Monaco Editor",
       "Docker",
-      "DigitalOcean",
+      "Traefik",
+      "Vitest",
       "GitHub Actions",
     ],
     highlights: [
-      "Live cursor tracking",
-      "Room ownership and moderation",
-      "User presence tracking",
+      "Live cursor tracking with per-user colors",
+      "Room ownership and participant kick",
+      "CI/CD pipeline with unit tests gating deployment",
     ],
   },
   {
     title: "Sentire",
-    category: "Full Stack",
+    category: "Full Stack Application",
     label: "Live at sentire.sivv.me",
     image: sentire,
     summary:
-      "An emotion tracking platform that maps the relationship between what you do and how you feel. Track moods, activities, and patterns over time, then uncover correlations between habits and emotional wellbeing.",
+      "An emotion tracking platform that maps what you do to how you feel — logging moods, activities, and patterns over time to uncover correlations like gym correlating with positive emotions or studying correlating with stress.",
     insight:
-      "Built around a dual-database architecture where MongoDB handles application data and Neo4j handles activity-emotion relationship traversal, making complex pattern discovery a graph problem instead of repeated document lookups.",
+      "Designed around a dual-database architecture: MongoDB handles users, sessions, and emotion logs; Neo4j models activity-emotion relationships as a graph. Pattern detection like 'music improves mood 90% of the time' is a graph traversal in Neo4j — computationally expensive as repeated document lookups in MongoDB, trivial as a relationship query.",
     demo: "https://sentire.sivv.me",
-    github: "https://github.com/Sivdvj/sentire",
+    github: "https://github.com/Sivdvj/Sentire",
     tech: [
       "Svelte",
       "Node.js",
@@ -47,34 +51,55 @@ export const projects = [
       "PostgreSQL",
       "Docker",
       "Nginx",
+      "DigitalOcean",
     ],
     highlights: [
-      "JWT authentication",
-      "Role-based authorization",
-      "Plan, device, and add-on CRUD",
+      "Dual-database architecture — MongoDB + Neo4j",
+      "Graph-based activity-emotion pattern detection",
+      "Session management with per-device revocation",
     ],
   },
   {
     title: "BlushBoard",
-    category: "Featured Project",
-    label: "Personal Project",
+    category: "Personal Project",
+    label: "Live at blushboard.sivv.me",
     image: blushboard,
     summary:
-      "A cozy productivity app with Pomodoro timer, habit tracker, and progress analytics — containerized and reverse-proxied.",
+      "A cozy productivity corner with a configurable Pomodoro timer, month-view habit tracker with completion statistics, and ambient sound mixing — because every productivity app I tried was missing something.",
     insight:
-      "Built it because I couldn't find a productivity tool I actually enjoyed using. Ships everything I wanted to learn about infra.",
+      "Started as a place to learn React properly by building something I'd actually use every day. Ended up becoming a real exploration of localStorage state management, custom audio handling with useRef, and Docker reverse-proxy deployment on a self-managed server.",
     github: "https://github.com/Sivdvj/blushboard",
     demo: "https://blushboard.sivv.me",
-    tech: ["React", "Tailwind", "Docker", "Nginx", "Traefik"],
-    highlights: ["Habit tracking", "Pomodoro timer", "Progress analytics"],
+    tech: ["React", "Tailwind CSS", "Recharts", "Docker", "Nginx", "Traefik"],
+    highlights: [
+      "Habit tracking across months with completion stats",
+      "Pomodoro with configurable laps, breaks, and ambient sounds",
+      "Persistent settings via localStorage with useRef audio",
+    ],
   },
-];
-
-export const learningItems = [
-  "Spring Boot Security",
-  "System Design Fundamentals",
-  "WebSocket Architectures",
-  "CRDTs & Yjs",
-  "Rate Limiters",
-  "Distributed Caching",
+  {
+    title: "Particle Morphing Engine",
+    category: "Creative Engineering",
+    label: "Interactive WebGL",
+    image: threejs,
+    summary:
+      "An interactive 3D system where thousands of particles morph fluidly between geometric formations — scatter cloud, torus, and circular grid — driven by scroll position and mouse parallax.",
+    insight:
+      "Built a custom morphing engine using linear interpolation (LERP) between pre-computed particle coordinate sets. Each particle smoothly transitions between target positions as scroll progress advances, while Simplex Noise adds organic drift to prevent the motion from feeling mechanical. The challenge was maintaining 60fps with 5000+ particles interpolating simultaneously.",
+    github: "https://github.com/Sivdvj/threejs",
+    demo: "https://sivdvj.github.io/threejs/",
+    tech: [
+      "Three.js",
+      "WebGL",
+      "GSAP",
+      "ScrollTrigger",
+      "Simplex Noise",
+      "JavaScript",
+    ],
+    highlights: [
+      "5000+ particles morphing across 3 geometric states via LERP",
+      "Scroll-driven animation with GSAP ScrollTrigger",
+      "Simplex Noise for organic motion on top of deterministic paths",
+    ],
+  },
 ];
