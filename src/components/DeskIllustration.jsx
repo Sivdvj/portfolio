@@ -1,434 +1,849 @@
-function DeskShadow() {
-  return (
-    <ellipse
-      cx="430"
-      cy="286"
-      rx="325"
-      ry="24"
-      className="fill-[#FF8DB7]/20"
-    />
-  );
-}
-
-function StickyNote({ x, y, rotate = 0, children, tape = true }) {
-  return (
-    <g transform={`translate(${x} ${y}) rotate(${rotate})`}>
-      <rect
-        x="0"
-        y="0"
-        width="86"
-        height="82"
-        rx="3"
-        className="fill-white/80 stroke-[#A77283]"
-        strokeWidth="1.3"
-      />
-      <path
-        d="M6 7 C25 4, 48 9, 80 5"
-        className="fill-none stroke-[#A77283]/50"
-        strokeWidth="1"
-      />
-      {tape && (
-        <rect
-          x="25"
-          y="-8"
-          width="36"
-          height="14"
-          rx="1"
-          className="fill-[#FFB8D4]/70 stroke-[#B86B83]/50"
-        />
-      )}
-      <foreignObject x="9" y="19" width="68" height="52">
-        <div className="flex h-full items-center justify-center text-center font-mono text-[13px] leading-4 text-[#6B5C61]">
-          {children}
-        </div>
-      </foreignObject>
-    </g>
-  );
-}
-
-function FlowNote() {
-  const boxes = [
-    ["IDEA", 24],
-    ["CODE", 60],
-    ["DEPLOY", 96],
-  ];
-
-  return (
-    <g transform="translate(212 24) rotate(2)">
-      <rect
-        width="116"
-        height="128"
-        rx="3"
-        className="fill-white/80 stroke-[#A77283]"
-        strokeWidth="1.3"
-      />
-      <rect
-        x="38"
-        y="-7"
-        width="40"
-        height="13"
-        className="fill-[#FFB8D4]/60 stroke-[#B86B83]/40"
-      />
-      {boxes.map(([label, y], index) => (
-        <g key={label}>
-          <rect
-            x={index === 2 ? 28 : 35}
-            y={y}
-            width={index === 2 ? 60 : 46}
-            height="19"
-            rx="2"
-            className="fill-[#FFF7FA] stroke-[#6B5C61]"
-          />
-          <text
-            x="58"
-            y={y + 13}
-            textAnchor="middle"
-            className="fill-[#2A2024] font-mono text-[11px] font-bold"
-          >
-            {label}
-          </text>
-          {index < boxes.length - 1 && (
-            <path
-              d={`M58 ${y + 21} L58 ${y + 34}`}
-              className="stroke-[#6B5C61]"
-              markerEnd="url(#arrow)"
-            />
-          )}
-        </g>
-      ))}
-      <text x="88" y="66" className="fill-[#FF6EA8] text-[15px]">
-        ♡
-      </text>
-    </g>
-  );
-}
-
-function ArchitectureDiagram() {
-  const services = [
-    ["AUTH", 20],
-    ["PLAN", 100],
-    ["DEVICE", 180],
-  ];
-
-  return (
-    <g transform="translate(360 32) rotate(1)">
-      <rect
-        width="220"
-        height="158"
-        rx="4"
-        className="fill-white/70 stroke-[#8D6470]"
-        strokeWidth="1.4"
-      />
-      <rect
-        x="82"
-        y="-8"
-        width="56"
-        height="16"
-        className="fill-[#FFB8D4]/70 stroke-[#B86B83]/40"
-      />
-      <text
-        x="110"
-        y="29"
-        textAnchor="middle"
-        className="fill-[#2A2024] font-mono text-[11px] font-bold"
-      >
-        USERS
-      </text>
-      <path d="M110 36 L110 54" className="stroke-[#5F5157]" markerEnd="url(#arrow)" />
-      <rect
-        x="54"
-        y="55"
-        width="112"
-        height="24"
-        rx="2"
-        className="fill-[#FFF7FA] stroke-[#5F5157]"
-      />
-      <text
-        x="110"
-        y="71"
-        textAnchor="middle"
-        className="fill-[#2A2024] font-mono text-[11px] font-bold"
-      >
-        API GATEWAY
-      </text>
-      <path d="M110 80 L110 94 M60 94 H190" className="fill-none stroke-[#5F5157]" />
-      {services.map(([label, x]) => (
-        <g key={label}>
-          <path d={`M${x + 30} 94 L${x + 30} 104`} className="stroke-[#5F5157]" />
-          <rect
-            x={x}
-            y="104"
-            width="60"
-            height="34"
-            rx="2"
-            className="fill-[#FFF1F6] stroke-[#B76C83]"
-          />
-          <text
-            x={x + 30}
-            y="118"
-            textAnchor="middle"
-            className="fill-[#2A2024] font-mono text-[10px] font-bold"
-          >
-            {label}
-          </text>
-          <text
-            x={x + 30}
-            y="131"
-            textAnchor="middle"
-            className="fill-[#2A2024] font-mono text-[10px] font-bold"
-          >
-            SERVICE
-          </text>
-        </g>
-      ))}
-      <path d="M110 138 L110 150" className="stroke-[#5F5157]" />
-      <ellipse
-        cx="110"
-        cy="151"
-        rx="22"
-        ry="7"
-        className="fill-white stroke-[#5F5157]"
-      />
-      <path
-        d="M88 151 v15 c0 4 44 4 44 0 v-15"
-        className="fill-white stroke-[#5F5157]"
-      />
-    </g>
-  );
-}
-
-function Laptop() {
-  return (
-    <g transform="translate(246 158)">
-      <rect
-        x="0"
-        y="0"
-        width="230"
-        height="132"
-        rx="9"
-        className="fill-[#2A2024] stroke-[#47333C]"
-        strokeWidth="5"
-      />
-      <rect x="13" y="13" width="204" height="101" rx="4" className="fill-[#201C20]" />
-      <circle cx="115" cy="8" r="2" className="fill-[#FFD3E5]" />
-      {[
-        "> building",
-        "> learning",
-        "> shipping",
-        "> repeating",
-      ].map((line, index) => (
-        <text
-          x="43"
-          y={42 + index * 19}
-          className="fill-[#BCEFB1] font-mono text-[14px]"
-          key={line}
-        >
-          {line}
-        </text>
-      ))}
-      <path
-        d="M-30 132 H260 L286 156 C260 165 4 165 -32 156 Z"
-        className="fill-[#DAB8C5] stroke-[#47333C]"
-        strokeWidth="3"
-      />
-      <rect x="75" y="143" width="84" height="8" rx="4" className="fill-[#B98A9B]" />
-      <g className="stroke-[#6B5C61]/50">
-        {Array.from({ length: 9 }).map((_, row) =>
-          Array.from({ length: 10 }).map((__, col) => (
-            <rect
-              x={30 + col * 16}
-              y={119 + row * 3}
-              width="10"
-              height="1"
-              rx="0.5"
-              key={`${row}-${col}`}
-            />
-          )),
-        )}
-      </g>
-    </g>
-  );
-}
-
-function Vase() {
-  return (
-    <g transform="translate(164 174)">
-      <path
-        d="M34 94 C12 82 12 26 29 20 C32 12 45 12 49 20 C66 27 66 83 43 94 Z"
-        className="fill-[#FFD3E5] stroke-[#8D6470]"
-        strokeWidth="2"
-      />
-      <path d="M35 22 C24 -16 18 -28 5 -42" className="fill-none stroke-[#5F7D58]" />
-      <path d="M41 21 C42 -12 50 -27 60 -42" className="fill-none stroke-[#5F7D58]" />
-      <path d="M38 22 C31 -11 33 -26 36 -46" className="fill-none stroke-[#5F7D58]" />
-      {[[-3, -49], [60, -48], [36, -54], [16, -30], [51, -27]].map(([x, y]) => (
-        <g transform={`translate(${x} ${y})`} key={`${x}-${y}`}>
-          <ellipse cx="8" cy="8" rx="7" ry="11" className="fill-[#FFB8D4] stroke-[#8D6470]" />
-          <ellipse cx="14" cy="7" rx="6" ry="10" className="fill-[#FFD3E5] stroke-[#8D6470]" />
-          <circle cx="10" cy="11" r="3" className="fill-[#FF8DB7]" />
-        </g>
-      ))}
-      <path d="M28 40 C35 48 43 48 51 38" className="fill-none stroke-white" strokeWidth="2" />
-    </g>
-  );
-}
-
-function CatCup() {
-  return (
-    <g transform="translate(505 225)">
-      <path
-        d="M18 8 C38 -2 71 2 88 13 L86 61 C82 78 27 79 22 61 Z"
-        className="fill-[#FFD3E5] stroke-[#8D6470]"
-        strokeWidth="2.2"
-      />
-      <path
-        d="M86 24 C117 20 117 56 88 55"
-        className="fill-none stroke-[#8D6470]"
-        strokeWidth="8"
-      />
-      <ellipse cx="54" cy="12" rx="37" ry="9" className="fill-[#2A2024] stroke-[#8D6470]" />
-      <path d="M36 40 l7 -8 l7 8 M59 40 l7 -8 l7 8" className="fill-none stroke-[#8D6470]" />
-      <circle cx="45" cy="51" r="2" className="fill-[#2A2024]" />
-      <circle cx="64" cy="51" r="2" className="fill-[#2A2024]" />
-      <path d="M53 58 Q57 62 61 58" className="fill-none stroke-[#2A2024]" />
-      <path d="M53 -24 C47 -13 50 -4 44 5 M68 -30 C59 -18 66 -8 58 4" className="fill-none stroke-[#FFB8D4]" strokeWidth="3" />
-    </g>
-  );
-}
-
-function CatTablet() {
-  return (
-    <g transform="translate(632 207) rotate(7)">
-      <rect
-        x="0"
-        y="0"
-        width="86"
-        height="76"
-        rx="8"
-        className="fill-[#2A2024] stroke-[#47333C]"
-        strokeWidth="4"
-      />
-      <rect x="10" y="10" width="66" height="52" rx="4" className="fill-[#FFF1F6]" />
-      <path
-        d="M27 42 C28 29 38 24 43 24 C53 24 61 31 61 42 C61 55 28 55 27 42 Z"
-        className="fill-[#FFD3E5] stroke-[#8D6470]"
-      />
-      <path d="M34 28 l5 -8 l5 8 M50 28 l5 -8 l5 8" className="fill-[#FFD3E5] stroke-[#8D6470]" />
-      <circle cx="39" cy="40" r="1.8" className="fill-[#2A2024]" />
-      <circle cx="51" cy="40" r="1.8" className="fill-[#2A2024]" />
-      <path d="M42 47 Q45 50 49 47" className="fill-none stroke-[#2A2024]" />
-      <path d="M-10 78 H95" className="stroke-[#FF8DB7]/50" strokeWidth="5" />
-    </g>
-  );
-}
-
-function Petals() {
-  return (
-    <g className="fill-[#FF8DB7]/55">
-      {[
-        [35, 35, -20],
-        [110, 78, 22],
-        [318, 8, 18],
-        [610, 98, -28],
-        [688, 33, 18],
-        [126, 294, -8],
-        [575, 306, 18],
-      ].map(([x, y, rotate]) => (
-        <ellipse
-          cx={x}
-          cy={y}
-          rx="8"
-          ry="4"
-          transform={`rotate(${rotate} ${x} ${y})`}
-          key={`${x}-${y}`}
-        />
-      ))}
-    </g>
-  );
-}
-
-function CherryBranch() {
-  const blossoms = [
-    [34, 8, 1],
-    [78, 19, 0.85],
-    [112, 6, 1.1],
-    [156, 21, 0.9],
-    [198, 8, 1],
-    [232, 26, 0.82],
-  ];
-
-  return (
-    <g transform="translate(438 2)">
-      <path
-        d="M0 20 C56 8 110 8 170 18 C202 23 242 16 286 3"
-        className="fill-none stroke-[#7D4D55]"
-        strokeLinecap="round"
-        strokeWidth="6"
-      />
-      <path
-        d="M55 13 C67 22 78 30 96 34 M145 15 C155 3 165 -6 186 -12 M217 14 C231 23 244 31 262 33"
-        className="fill-none stroke-[#7D4D55]"
-        strokeLinecap="round"
-        strokeWidth="4"
-      />
-      {blossoms.map(([x, y, scale]) => (
-        <g transform={`translate(${x} ${y}) scale(${scale})`} key={`${x}-${y}`}>
-          <circle cx="0" cy="0" r="4" className="fill-[#FF8DB7]" />
-          {[0, 72, 144, 216, 288].map((rotate) => (
-            <ellipse
-              cx="0"
-              cy="-9"
-              rx="6"
-              ry="9"
-              className="fill-[#FFB8D4] stroke-[#FF8DB7]/60"
-              transform={`rotate(${rotate})`}
-              key={rotate}
-            />
-          ))}
-        </g>
-      ))}
-    </g>
-  );
-}
+// src/components/DeskIllustration.jsx
 
 export default function DeskIllustration() {
   return (
     <svg
-      className="desk-illustration h-full w-full"
-      viewBox="0 0 740 330"
-      role="img"
-      aria-labelledby="desk-title"
+      viewBox="0 0 520 340"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      style={{ width: "100%", height: "100%", display: "block" }}
     >
-      <title id="desk-title">A pink scrapbook software engineer desk with laptop, diagrams, flowers, cat cup, and tablet</title>
       <defs>
-        <marker
-          id="arrow"
-          markerHeight="6"
-          markerWidth="6"
-          orient="auto"
-          refX="5"
-          refY="3"
-        >
-          <path d="M0 0 L6 3 L0 6 Z" className="fill-[#5F5157]" />
-        </marker>
+        {/* Petal shadow */}
+        <filter id="petalShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow
+            dx="1"
+            dy="2"
+            stdDeviation="2"
+            floodColor="#c05080"
+            floodOpacity="0.15"
+          />
+        </filter>
+
+        {/* Laptop base gradient */}
+        <linearGradient id="laptopBase" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#f9c8d8" />
+          <stop offset="100%" stopColor="#f0a0b8" />
+        </linearGradient>
+
+        {/* Vase gradient */}
+        <linearGradient id="vaseGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#fce8ef" />
+          <stop offset="100%" stopColor="#f0a0b8" />
+        </linearGradient>
+
+        {/* Mug gradient */}
+        <linearGradient id="mugGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#fce8ef" />
+          <stop offset="100%" stopColor="#f5b8cb" />
+        </linearGradient>
+
+        {/* Sticky note 1 */}
+        <linearGradient id="sticky1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#fce8ef" />
+          <stop offset="100%" stopColor="#f9dce8" />
+        </linearGradient>
+
+        {/* Sticky note 2 */}
+        <linearGradient id="sticky2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#fff8f0" />
+          <stop offset="100%" stopColor="#fdf0e4" />
+        </linearGradient>
+
+        {/* Tablet gradient */}
+        <linearGradient id="tabletGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#fce8ef" />
+          <stop offset="100%" stopColor="#f5c0d0" />
+        </linearGradient>
+
+        {/* Cherry blossom petal */}
+        <radialGradient id="petalGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#fdd8e8" />
+          <stop offset="100%" stopColor="#f0a0b8" />
+        </radialGradient>
       </defs>
-      <CherryBranch />
-      <Petals />
+
+      {/* ── Cherry blossom branch (top) ──────────────────────────── */}
+      {/* Main branch sweeping from top-right */}
       <path
-        d="M26 286 C160 274 304 277 448 282 C556 286 626 282 717 270"
-        className="fill-none stroke-[#C98EA5]/70"
-        strokeWidth="2"
+        d="M 350 0 Q 390 20 420 35 Q 460 55 500 45 Q 520 38 520 38"
+        stroke="#c8a0b0"
+        strokeWidth="2.5"
+        fill="none"
+        opacity="0.5"
+        strokeLinecap="round"
       />
-      <DeskShadow />
-      <StickyNote x={74} y={22} rotate={-4}>
-        Ship something cute ♡
-      </StickyNote>
-      <FlowNote />
-      <ArchitectureDiagram />
-      <Vase />
-      <Laptop />
-      <CatCup />
-      <CatTablet />
+      <path
+        d="M 395 22 Q 405 10 415 5"
+        stroke="#c8a0b0"
+        strokeWidth="1.5"
+        fill="none"
+        opacity="0.4"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 440 42 Q 445 28 455 22"
+        stroke="#c8a0b0"
+        strokeWidth="1.5"
+        fill="none"
+        opacity="0.4"
+        strokeLinecap="round"
+      />
+      {/* Blossoms on branch */}
+      {[
+        [385, 26],
+        [405, 16],
+        [418, 9],
+        [430, 35],
+        [447, 28],
+        [460, 22],
+        [472, 40],
+        [488, 33],
+        [503, 42],
+      ].map(([cx, cy], i) => (
+        <g key={i} transform={`translate(${cx} ${cy})`}>
+          {[0, 72, 144, 216, 288].map((angle) => (
+            <ellipse
+              key={angle}
+              cx={Math.cos((angle * Math.PI) / 180) * 5}
+              cy={Math.sin((angle * Math.PI) / 180) * 5}
+              rx="4.5"
+              ry="3"
+              fill="url(#petalGrad)"
+              opacity="0.75"
+              transform={`rotate(${angle})`}
+            />
+          ))}
+          <circle cx="0" cy="0" r="2" fill="#fdd8e8" />
+          <circle cx="0" cy="0" r="1" fill="#f9a0c0" />
+        </g>
+      ))}
+
+      {/* ── Desk surface ─────────────────────────────────────────── */}
+      <rect
+        x="0"
+        y="258"
+        width="520"
+        height="82"
+        fill="#faf0f4"
+        rx="0"
+        opacity="0.6"
+      />
+      <line
+        x1="0"
+        y1="258"
+        x2="520"
+        y2="258"
+        stroke="rgba(214,99,138,0.18)"
+        strokeWidth="1"
+      />
+
+      {/* ── STICKY NOTE 2: IDEA → CODE → DEPLOY ─────────────────── */}
+      <g transform="translate(158, 60)" filter="url(#softShadow)">
+        <g transform="rotate(2)">
+          <rect
+            x="0"
+            y="0"
+            width="82"
+            height="90"
+            rx="3"
+            fill="url(#sticky2)"
+          />
+          <rect
+            x="24"
+            y="-6"
+            width="28"
+            height="10"
+            rx="2"
+            fill="#f9e8c8"
+            opacity="0.7"
+          />
+          {/* IDEA box */}
+          <rect
+            x="18"
+            y="10"
+            width="46"
+            height="16"
+            rx="2"
+            fill="none"
+            stroke="rgba(92,61,82,0.35)"
+            strokeWidth="1"
+          />
+          <text
+            x="41"
+            y="22"
+            fontFamily="'JetBrains Mono', monospace"
+            fontSize="8"
+            fill="#5c3d52"
+            textAnchor="middle"
+            fontWeight="500"
+          >
+            IDEA
+          </text>
+          {/* arrow */}
+          <line
+            x1="41"
+            y1="26"
+            x2="41"
+            y2="33"
+            stroke="rgba(92,61,82,0.4)"
+            strokeWidth="1"
+          />
+          <polygon points="37,32 41,37 45,32" fill="rgba(92,61,82,0.35)" />
+          {/* CODE box */}
+          <rect
+            x="18"
+            y="37"
+            width="46"
+            height="16"
+            rx="2"
+            fill="rgba(240,160,184,0.18)"
+            stroke="rgba(214,99,138,0.3)"
+            strokeWidth="1"
+          />
+          <text
+            x="41"
+            y="49"
+            fontFamily="'JetBrains Mono', monospace"
+            fontSize="8"
+            fill="#e8527a"
+            textAnchor="middle"
+            fontWeight="500"
+          >
+            CODE
+          </text>
+          {/* arrow */}
+          <line
+            x1="41"
+            y1="53"
+            x2="41"
+            y2="60"
+            stroke="rgba(92,61,82,0.4)"
+            strokeWidth="1"
+          />
+          <polygon points="37,59 41,64 45,59" fill="rgba(92,61,82,0.35)" />
+          {/* DEPLOY box */}
+          <rect
+            x="18"
+            y="64"
+            width="46"
+            height="16"
+            rx="2"
+            fill="none"
+            stroke="rgba(92,61,82,0.3)"
+            strokeWidth="1"
+          />
+          <text
+            x="41"
+            y="76"
+            fontFamily="'JetBrains Mono', monospace"
+            fontSize="8"
+            fill="#5c3d52"
+            textAnchor="middle"
+            fontWeight="500"
+          >
+            DEPLOY
+          </text>
+        </g>
+      </g>
+
+      {/* ── Architecture sketch: USERS → Gateway → Services ──────── */}
+      <g transform="translate(256, 52)" filter="url(#softShadow)">
+        {/* background card */}
+        <rect
+          x="0"
+          y="0"
+          width="180"
+          height="130"
+          rx="5"
+          fill="rgba(253,246,240,0.85)"
+          stroke="rgba(214,99,138,0.15)"
+          strokeWidth="1"
+        />
+
+        {/* USERS */}
+        <rect
+          x="55"
+          y="10"
+          width="70"
+          height="18"
+          rx="3"
+          fill="none"
+          stroke="rgba(92,61,82,0.3)"
+          strokeWidth="1"
+        />
+        <text
+          x="90"
+          y="23"
+          fontFamily="'JetBrains Mono', monospace"
+          fontSize="8"
+          fill="#5c3d52"
+          textAnchor="middle"
+        >
+          USERS
+        </text>
+        {/* down arrow */}
+        <line
+          x1="90"
+          y1="28"
+          x2="90"
+          y2="35"
+          stroke="rgba(92,61,82,0.35)"
+          strokeWidth="1"
+        />
+        <polygon points="86,34 90,38 94,34" fill="rgba(92,61,82,0.3)" />
+        {/* API GATEWAY */}
+        <rect
+          x="30"
+          y="38"
+          width="120"
+          height="18"
+          rx="3"
+          fill="rgba(240,160,184,0.15)"
+          stroke="rgba(214,99,138,0.3)"
+          strokeWidth="1"
+        />
+        <text
+          x="90"
+          y="51"
+          fontFamily="'JetBrains Mono', monospace"
+          fontSize="7.5"
+          fill="#e8527a"
+          textAnchor="middle"
+          fontWeight="500"
+        >
+          API GATEWAY
+        </text>
+        {/* branching arrows */}
+        <line
+          x1="60"
+          y1="56"
+          x2="38"
+          y2="64"
+          stroke="rgba(92,61,82,0.3)"
+          strokeWidth="0.75"
+        />
+        <line
+          x1="90"
+          y1="56"
+          x2="90"
+          y2="64"
+          stroke="rgba(92,61,82,0.3)"
+          strokeWidth="0.75"
+        />
+        <line
+          x1="120"
+          y1="56"
+          x2="142"
+          y2="64"
+          stroke="rgba(92,61,82,0.3)"
+          strokeWidth="0.75"
+        />
+        {/* Auth Service */}
+        <rect
+          x="5"
+          y="64"
+          width="56"
+          height="20"
+          rx="3"
+          fill="none"
+          stroke="rgba(92,61,82,0.25)"
+          strokeWidth="1"
+        />
+        <text
+          x="33"
+          y="72"
+          fontFamily="'JetBrains Mono', monospace"
+          fontSize="6.5"
+          fill="#5c3d52"
+          textAnchor="middle"
+        >
+          AUTH
+        </text>
+        <text
+          x="33"
+          y="80"
+          fontFamily="'JetBrains Mono', monospace"
+          fontSize="6.5"
+          fill="#5c3d52"
+          textAnchor="middle"
+        >
+          SERVICE
+        </text>
+        {/* Plan Service */}
+        <rect
+          x="62"
+          y="64"
+          width="56"
+          height="20"
+          rx="3"
+          fill="none"
+          stroke="rgba(92,61,82,0.25)"
+          strokeWidth="1"
+        />
+        <text
+          x="90"
+          y="72"
+          fontFamily="'JetBrains Mono', monospace"
+          fontSize="6.5"
+          fill="#5c3d52"
+          textAnchor="middle"
+        >
+          PLAN
+        </text>
+        <text
+          x="90"
+          y="80"
+          fontFamily="'JetBrains Mono', monospace"
+          fontSize="6.5"
+          fill="#5c3d52"
+          textAnchor="middle"
+        >
+          SERVICE
+        </text>
+        {/* Device Service */}
+        <rect
+          x="119"
+          y="64"
+          width="58"
+          height="20"
+          rx="3"
+          fill="none"
+          stroke="rgba(92,61,82,0.25)"
+          strokeWidth="1"
+        />
+        <text
+          x="148"
+          y="72"
+          fontFamily="'JetBrains Mono', monospace"
+          fontSize="6.5"
+          fill="#5c3d52"
+          textAnchor="middle"
+        >
+          DEVICE
+        </text>
+        <text
+          x="148"
+          y="80"
+          fontFamily="'JetBrains Mono', monospace"
+          fontSize="6.5"
+          fill="#5c3d52"
+          textAnchor="middle"
+        >
+          SERVICE
+        </text>
+      </g>
+
+      {/* ── Flower vase (left side) ───────────────────────────────── */}
+      <g transform="translate(28, 158)">
+        {/* Stems */}
+        <path
+          d="M 36 90 Q 28 60 24 20"
+          stroke="#9bc4a0"
+          strokeWidth="2"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M 36 90 Q 36 55 38 18"
+          stroke="#9bc4a0"
+          strokeWidth="2"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M 36 90 Q 46 58 54 22"
+          stroke="#9bc4a0"
+          strokeWidth="2"
+          fill="none"
+          strokeLinecap="round"
+        />
+        {/* Leaves */}
+        <ellipse
+          cx="30"
+          cy="52"
+          rx="8"
+          ry="4"
+          fill="#9bc4a0"
+          opacity="0.7"
+          transform="rotate(-35 30 52)"
+        />
+        <ellipse
+          cx="44"
+          cy="58"
+          rx="7"
+          ry="3.5"
+          fill="#9bc4a0"
+          opacity="0.6"
+          transform="rotate(25 44 58)"
+        />
+
+        {/* Flower 1 — top center */}
+        <g transform="translate(38, 14)">
+          {[0, 60, 120, 180, 240, 300].map((a) => (
+            <ellipse
+              key={a}
+              cx={Math.cos((a * Math.PI) / 180) * 8}
+              cy={Math.sin((a * Math.PI) / 180) * 8}
+              rx="7"
+              ry="4"
+              fill="#f9c8d8"
+              opacity="0.85"
+              transform={`rotate(${a})`}
+            />
+          ))}
+          <circle cx="0" cy="0" r="5" fill="#fdd8e8" />
+          <circle cx="0" cy="0" r="2.5" fill="#f9a0c0" />
+        </g>
+
+        {/* Flower 2 — left */}
+        <g transform="translate(22, 18)">
+          {[0, 60, 120, 180, 240, 300].map((a) => (
+            <ellipse
+              key={a}
+              cx={Math.cos((a * Math.PI) / 180) * 7}
+              cy={Math.sin((a * Math.PI) / 180) * 7}
+              rx="6"
+              ry="3.5"
+              fill="#fce8ef"
+              opacity="0.8"
+              transform={`rotate(${a + 30})`}
+            />
+          ))}
+          <circle cx="0" cy="0" r="4" fill="#fdd8e8" />
+          <circle cx="0" cy="0" r="2" fill="#f0a0b8" />
+        </g>
+
+        {/* Flower 3 — right */}
+        <g transform="translate(54, 20)">
+          {[0, 60, 120, 180, 240, 300].map((a) => (
+            <ellipse
+              key={a}
+              cx={Math.cos((a * Math.PI) / 180) * 7}
+              cy={Math.sin((a * Math.PI) / 180) * 7}
+              rx="6"
+              ry="3.5"
+              fill="#f9c8d8"
+              opacity="0.75"
+              transform={`rotate(${a + 15})`}
+            />
+          ))}
+          <circle cx="0" cy="0" r="4" fill="#fdd8e8" />
+          <circle cx="0" cy="0" r="2" fill="#f9a0c0" />
+        </g>
+
+        {/* Vase body */}
+        <path
+          d="M 20 90 Q 14 95 16 105 L 20 130 Q 28 138 36 138 Q 44 138 52 130 L 56 105 Q 58 95 52 90 Q 46 86 36 86 Q 26 86 20 90 Z"
+          fill="url(#vaseGrad)"
+          stroke="rgba(214,99,138,0.3)"
+          strokeWidth="1.5"
+          filter="url(#softShadow)"
+        />
+        {/* Vase neck */}
+        <ellipse
+          cx="36"
+          cy="90"
+          rx="16"
+          ry="5"
+          fill="#f9c8d8"
+          stroke="rgba(214,99,138,0.25)"
+          strokeWidth="1"
+        />
+        {/* Vase highlight */}
+        <path
+          d="M 24 98 Q 22 108 23 120"
+          stroke="rgba(255,255,255,0.5)"
+          strokeWidth="2"
+          fill="none"
+          strokeLinecap="round"
+        />
+      </g>
+
+      {/* ── Laptop ───────────────────────────────────────────────── */}
+      <g transform="translate(120, 148)" filter="url(#softShadow)">
+        {/* Screen */}
+        <rect
+          x="8"
+          y="0"
+          width="196"
+          height="130"
+          rx="8"
+          fill="#1a0d14"
+          stroke="#3a1e2e"
+          strokeWidth="2"
+        />
+        <rect
+          x="14"
+          y="6"
+          width="184"
+          height="118"
+          rx="5"
+          fill="url(#screenGrad)"
+        />
+
+        {/* Screen content: terminal lines */}
+        <text
+          x="24"
+          y="28"
+          fontFamily="'JetBrains Mono', monospace"
+          fontSize="9"
+          fill="#f9a0c0"
+          opacity="0.7"
+        >
+          &gt; building
+        </text>
+        <text
+          x="24"
+          y="42"
+          fontFamily="'JetBrains Mono', monospace"
+          fontSize="9"
+          fill="#9bc4a0"
+          opacity="0.6"
+        >
+          &gt; learning
+        </text>
+        <text
+          x="24"
+          y="56"
+          fontFamily="'JetBrains Mono', monospace"
+          fontSize="9"
+          fill="#f9a0c0"
+          opacity="0.7"
+        >
+          &gt; shipping
+        </text>
+        <text
+          x="24"
+          y="70"
+          fontFamily="'JetBrains Mono', monospace"
+          fontSize="9"
+          fill="#9bc4a0"
+          opacity="0.5"
+        >
+          &gt; repeating
+        </text>
+
+        {/* Faint code lines */}
+        <rect
+          x="24"
+          y="94"
+          width="80"
+          height="4"
+          rx="2"
+          fill="rgba(240,160,184,0.2)"
+        />
+        <rect
+          x="24"
+          y="102"
+          width="120"
+          height="4"
+          rx="2"
+          fill="rgba(155,196,160,0.18)"
+        />
+        <rect
+          x="24"
+          y="110"
+          width="60"
+          height="4"
+          rx="2"
+          fill="rgba(240,160,184,0.15)"
+        />
+
+        {/* Laptop hinge + base */}
+        <rect
+          x="0"
+          y="130"
+          width="212"
+          height="12"
+          rx="3"
+          fill="url(#laptopBase)"
+          stroke="rgba(214,99,138,0.3)"
+          strokeWidth="1"
+        />
+        {/* trackpad */}
+        <rect
+          x="76"
+          y="132"
+          width="60"
+          height="8"
+          rx="3"
+          fill="rgba(214,99,138,0.18)"
+          stroke="rgba(214,99,138,0.2)"
+          strokeWidth="0.75"
+        />
+      </g>
+
+      {/* ── Cat mug (right side) ─────────────────────────────────── */}
+      <g transform="translate(364, 200)" filter="url(#softShadow)">
+        {/* Mug body */}
+        <path
+          d="M 8 0 L 8 62 Q 8 72 18 72 L 50 72 Q 60 72 60 62 L 60 0 Z"
+          fill="url(#mugGrad)"
+          stroke="rgba(214,99,138,0.28)"
+          strokeWidth="1.5"
+        />
+        {/* Handle */}
+        <path
+          d="M 60 15 Q 82 15 82 35 Q 82 55 60 55"
+          stroke="rgba(214,99,138,0.35)"
+          strokeWidth="6"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M 60 18 Q 76 18 76 35 Q 76 52 60 52"
+          stroke="url(#mugGrad)"
+          strokeWidth="3"
+          fill="none"
+          strokeLinecap="round"
+        />
+        {/* Cat face on mug */}
+        <circle cx="34" cy="32" r="18" fill="rgba(249,200,216,0.35)" />
+        {/* Eyes */}
+        <ellipse cx="26" cy="30" rx="3.5" ry="4" fill="#5c3d52" />
+        <ellipse cx="42" cy="30" rx="3.5" ry="4" fill="#5c3d52" />
+        <circle cx="27" cy="28.5" r="1.2" fill="#fff" opacity="0.7" />
+        <circle cx="43" cy="28.5" r="1.2" fill="#fff" opacity="0.7" />
+        {/* Nose */}
+        <ellipse cx="34" cy="35" rx="2.5" ry="1.5" fill="#f9a0c0" />
+        {/* Whiskers */}
+        <line
+          x1="12"
+          y1="34"
+          x2="30"
+          y2="35.5"
+          stroke="#9e7b8e"
+          strokeWidth="0.75"
+          opacity="0.5"
+        />
+        <line
+          x1="12"
+          y1="37"
+          x2="30"
+          y2="36.5"
+          stroke="#9e7b8e"
+          strokeWidth="0.75"
+          opacity="0.5"
+        />
+        <line
+          x1="38"
+          y1="35.5"
+          x2="56"
+          y2="34"
+          stroke="#9e7b8e"
+          strokeWidth="0.75"
+          opacity="0.5"
+        />
+        <line
+          x1="38"
+          y1="36.5"
+          x2="56"
+          y2="37"
+          stroke="#9e7b8e"
+          strokeWidth="0.75"
+          opacity="0.5"
+        />
+        {/* Ears (cat ears on top of mug) */}
+        <polygon
+          points="20,0 14,-12 28,-2"
+          fill="#f9c8d8"
+          stroke="rgba(214,99,138,0.2)"
+          strokeWidth="1"
+        />
+        <polygon
+          points="48,0 40,-2 54,-12"
+          fill="#f9c8d8"
+          stroke="rgba(214,99,138,0.2)"
+          strokeWidth="1"
+        />
+        <polygon points="20,0 16,-8 26,-1" fill="#f5b8cb" opacity="0.5" />
+        <polygon points="48,0 43,-1 52,-8" fill="#f5b8cb" opacity="0.5" />
+        {/* Steam */}
+        <path
+          d="M 20 0 Q 16 -8 20 -16 Q 24 -24 20 -32"
+          stroke="rgba(214,99,138,0.25)"
+          strokeWidth="1.5"
+          fill="none"
+          strokeLinecap="round"
+        >
+          <animate
+            attributeName="opacity"
+            values="0.25;0.5;0.25"
+            dur="2.5s"
+            repeatCount="indefinite"
+          />
+        </path>
+        <path
+          d="M 34 -4 Q 30 -12 34 -20 Q 38 -28 34 -36"
+          stroke="rgba(214,99,138,0.2)"
+          strokeWidth="1.5"
+          fill="none"
+          strokeLinecap="round"
+        >
+          <animate
+            attributeName="opacity"
+            values="0.2;0.45;0.2"
+            dur="3s"
+            repeatCount="indefinite"
+          />
+        </path>
+        {/* Mug rim */}
+        <rect
+          x="8"
+          y="-4"
+          width="52"
+          height="8"
+          rx="3"
+          fill="#fce8ef"
+          stroke="rgba(214,99,138,0.2)"
+          strokeWidth="1"
+        />
+      </g>
+
+      {/* ── Small tablet (far right) ─────────────────────────────── */}
+      <g transform="translate(452, 178)" filter="url(#softShadow)">
+        {/* Tablet frame */}
+        <rect
+          x="0"
+          y="0"
+          width="58"
+          height="75"
+          rx="7"
+          fill="url(#tabletGrad)"
+          stroke="rgba(214,99,138,0.28)"
+          strokeWidth="1.5"
+        />
+        {/* Screen area */}
+        <rect x="4" y="5" width="50" height="58" rx="4" fill="#1a0d14" />
+
+        {/* Bottom lines on screen */}
+        <rect
+          x="10"
+          y="44"
+          width="38"
+          height="3"
+          rx="1.5"
+          fill="rgba(240,160,184,0.25)"
+        />
+        <rect
+          x="14"
+          y="50"
+          width="30"
+          height="2.5"
+          rx="1.2"
+          fill="rgba(240,160,184,0.18)"
+        />
+        {/* Home button */}
+        <circle
+          cx="29"
+          cy="68"
+          r="3"
+          fill="rgba(214,99,138,0.18)"
+          stroke="rgba(214,99,138,0.25)"
+          strokeWidth="0.75"
+        />
+      </g>
     </svg>
   );
 }

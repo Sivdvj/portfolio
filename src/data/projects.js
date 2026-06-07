@@ -1,63 +1,80 @@
-// import codecollabImage from "../assets/codecollab.png";
-// import blushboardImage from "../assets/blushboard.png";
-// import telecomImage from "../assets/telecom.png";
-
+import sentire from "../assets/sentire.png";
+import codecollab from "../assets/codecollab.png";
+import blushboard from "../assets/blushboard.png";
 export const projects = [
   {
     title: "CodeCollab",
-    category: "Real-Time Systems",
-
-    image: "hi",
-
+    category: "Featured Project",
+    label: "Real-Time Systems",
+    image: codecollab,
+    featured: true,
     summary:
-      "A collaborative code editor supporting live synchronization, cursor tracking, room management, and Dockerized deployment.",
-
-    github: "YOUR_GITHUB_LINK",
+      "Real-time collaborative code editor with live cursors, room management, user presence tracking, and multi-user synchronization.",
+    insight:
+      "Built synchronization from scratch using Socket.IO and in-memory room state — deliberately, to understand the hard parts before moving toward CRDTs.",
+    github: "https://github.com/Sivdvj/code-collab",
     demo: "https://cc.sivv.me",
-
-    tech: ["React", "Socket.IO", "Node.js", "Docker", "DigitalOcean"],
-
+    tech: [
+      "React",
+      "Node.js",
+      "Socket.IO",
+      "Docker",
+      "DigitalOcean",
+      "GitHub Actions",
+    ],
     highlights: [
-      "Real-time collaborative editing",
       "Live cursor tracking",
       "Room ownership and moderation",
+      "User presence tracking",
     ],
   },
-
   {
-    title: "Telecom E-Commerce Backend",
-    category: "Backend Engineering",
-
-    image: "IH",
-
+    title: "Sentire",
+    category: "Full Stack",
+    label: "Live at sentire.sivv.me",
+    image: sentire,
     summary:
-      "Spring Boot microservices backend supporting authentication, telecom plans, devices, add-ons, and role-based access control.",
-
-    github: "YOUR_GITHUB_LINK",
-
-    tech: ["Java", "Spring Boot", "JWT", "Spring Security", "JPA"],
-
+      "An emotion tracking platform that maps the relationship between what you do and how you feel. Track moods, activities, and patterns over time, then uncover correlations between habits and emotional wellbeing.",
+    insight:
+      "Built around a dual-database architecture where MongoDB handles application data and Neo4j handles activity-emotion relationship traversal, making complex pattern discovery a graph problem instead of repeated document lookups.",
+    demo: "https://sentire.sivv.me",
+    github: "https://github.com/Sivdvj/sentire",
+    tech: [
+      "Svelte",
+      "Node.js",
+      "MongoDB",
+      "Neo4j",
+      "PostgreSQL",
+      "Docker",
+      "Nginx",
+    ],
     highlights: [
       "JWT authentication",
       "Role-based authorization",
-      "Microservices architecture",
+      "Plan, device, and add-on CRUD",
     ],
   },
-
   {
     title: "BlushBoard",
-    category: "Personal Project",
-
-    image: "Hi",
-
+    category: "Featured Project",
+    label: "Personal Project",
+    image: blushboard,
     summary:
-      "A cozy productivity corner featuring habit tracking, Pomodoro sessions, progress analytics, and a soft pink design system.",
-
-    github: "YOUR_GITHUB_LINK",
+      "A cozy productivity app with Pomodoro timer, habit tracker, and progress analytics — containerized and reverse-proxied.",
+    insight:
+      "Built it because I couldn't find a productivity tool I actually enjoyed using. Ships everything I wanted to learn about infra.",
+    github: "https://github.com/Sivdvj/blushboard",
     demo: "https://blushboard.sivv.me",
-
-    tech: ["React", "Tailwind", "Docker", "Nginx"],
-
+    tech: ["React", "Tailwind", "Docker", "Nginx", "Traefik"],
     highlights: ["Habit tracking", "Pomodoro timer", "Progress analytics"],
   },
+];
+
+export const learningItems = [
+  "Spring Boot Security",
+  "System Design Fundamentals",
+  "WebSocket Architectures",
+  "CRDTs & Yjs",
+  "Rate Limiters",
+  "Distributed Caching",
 ];
