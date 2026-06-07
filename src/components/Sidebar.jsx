@@ -1,5 +1,6 @@
 const navItems = [
   { label: "Home", href: "#home", icon: "⌂" },
+  { label: "Experience", href: "#experience", icon: "◈" },
   { label: "Projects", href: "#projects", icon: "✧" },
 ];
 
@@ -37,40 +38,61 @@ export default function Sidebar() {
           </a>
         ))}
       </nav>
-      <div className="terminal-card mt-8 hidden lg:block">
-        <div className="mb-5 flex items-center justify-between">
-          <p className="font-mono text-sm font-bold text-[#2A2024]">$ whoami</p>
-          <div className="flex gap-2">
-            <span className="h-3 w-3 rounded-full bg-[#FF6EA8]" />
-            <span className="h-3 w-3 rounded-full bg-[#F6C85F]" />
-            <span className="h-3 w-3 rounded-full bg-[#82D887]" />
+      <div className="paper-panel mt-8 hidden lg:block">
+        <p className="mb-4 font-mono text-xs uppercase tracking-[0.15em] text-[#FF6EA8]">
+          Quick Facts
+        </p>
+
+        <div className="space-y-3 text-sm text-[#493D42]">
+          <div className="flex items-center justify-between">
+            <span>CGPA</span>
+            <span className="font-semibold">9.15</span>
           </div>
-        </div>
-        <div className="space-y-3 font-mono text-sm leading-6 text-[#2A2024]">
-          <p>
-            <span className="text-[#4C9B62]">siv@portfolio</span>:~$ cat
-            about.txt
-          </p>
-          <p>School First Rank</p>
-          <p>CGPA: 9.15</p>
-          <p>Backend Enjoyer</p>
-          <p>Docker Survivor</p>
-          <p>Professional Pink Enthusiast</p>
-          <span className="inline-block h-5 w-2 animate-pulse bg-[#2A2024]" />
+
+          <div className="flex items-center justify-between">
+            <span>Current Role</span>
+            <span className="font-semibold">TCS Intern</span>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <span>Focus</span>
+            <span className="font-semibold">Backend</span>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <span>University</span>
+            <span className="font-semibold">VIT Chennai</span>
+          </div>
         </div>
       </div>
       <div className="mt-8 hidden lg:block">
         <p className="mb-4 text-sm font-bold text-[#2A2024]">Let's connect</p>
+
         <div className="flex gap-3">
-          {["GH", "in", "✉", "IG"].map((item) => (
-            <a
-              className="grid h-11 w-11 place-items-center rounded-full bg-[#FFE4EF] font-bold text-[#B65C7D] transition hover:-translate-y-1 hover:bg-[#FF8DB7] hover:text-white"
-              href="#"
-              key={item}
-            >
-              {item}
-            </a>
-          ))}
+          <a
+            href="https://github.com/Sivdvj"
+            target="_blank"
+            rel="noreferrer"
+            className="grid h-11 w-11 place-items-center rounded-full bg-[#FFE4EF] text-[#B65C7D] transition hover:-translate-y-1 hover:bg-[#FF8DB7] hover:text-white"
+          >
+            <i className="fa-brands fa-github" />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/sivaranjani-vijay"
+            target="_blank"
+            rel="noreferrer"
+            className="grid h-11 w-11 place-items-center rounded-full bg-[#FFE4EF] text-[#B65C7D] transition hover:-translate-y-1 hover:bg-[#FF8DB7] hover:text-white"
+          >
+            <i className="fa-brands fa-linkedin-in" />
+          </a>
+
+          <a
+            href="mailto:yourmail@gmail.com"
+            className="grid h-11 w-11 place-items-center rounded-full bg-[#FFE4EF] text-[#B65C7D] transition hover:-translate-y-1 hover:bg-[#FF8DB7] hover:text-white"
+          >
+            ✉
+          </a>
         </div>
       </div>
     </aside>

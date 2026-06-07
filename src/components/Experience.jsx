@@ -2,7 +2,7 @@ export default function Experience() {
   const tech = ["Java", "Spring Boot", "PostgreSQL", "JWT", "Docker", "JPA"];
 
   return (
-    <section className="section-shell py-6">
+    <section id="experience" className="section-shell py-6">
       <div className="overflow-hidden rounded-2xl border border-[#F5C9D9] bg-pink-100/30 p-8 shadow-[0_16px_45px_rgba(255,141,183,0.1)]">
         <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[#E8527A]">
           Experience
