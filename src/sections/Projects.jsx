@@ -68,10 +68,11 @@ export default function Projects() {
           </h2>
         </div>
         <a
-          className="hidden font-mono text-xs font-bold tracking-wide text-[#E8527A] transition hover:underline sm:inline-flex"
-          href="#"
+          className="hidden font-mono text-sm font-bold tracking-wide text-[#E8527A] transition hover:underline sm:inline-flex"
+          href="https://github.com/Sivdvj"
+          target="_blank"
         >
-          View all →
+          Github →
         </a>
       </div>
 
