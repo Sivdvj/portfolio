@@ -1,6 +1,6 @@
 import ProjectCard from "../components/ProjectCard";
 import SectionHeading from "../components/SectionHeading";
-import { projects } from "../data/projects";
+import { projects } from "./project";
 
 export default function Projects() {
   return (
@@ -11,6 +11,7 @@ export default function Projects() {
           carrying traces of the notebook they were planned in.
         </p>
       </SectionHeading>
+
       <div className="grid gap-6 xl:grid-cols-3">
         {projects.map((project) => (
           <ProjectCard project={project} key={project.title} />
