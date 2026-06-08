@@ -35,7 +35,7 @@ function FeaturedProjectCard({ project }) {
         <p className="mt-3 text-sm leading-6 text-[#5C3D52]">
           {project.summary}
         </p>
-        <p className="mt-4 border-l-2 border-[#F0A0B8] pl-3 font-serif text-sm italic leading-6 text-[#9E7B8E]">
+        <p className="mt-4 mb-4 border-l-2 border-[#F0A0B8] pl-3 text-sm italic leading-6 text-[#9E7B8E]">
           {project.insight}
         </p>
         <div className="mt-5 flex flex-wrap gap-2 lg:mt-auto">
@@ -68,7 +68,7 @@ export default function Projects() {
           </h2>
         </div>
         <a
-          className="hidden font-mono text-sm font-bold tracking-wide text-[#E8527A] transition hover:underline sm:inline-flex"
+          className="hidden font-mono text-md font-bold tracking-wide text-[#E8527A] transition hover:underline sm:inline-flex"
           href="https://github.com/Sivdvj"
           target="_blank"
         >

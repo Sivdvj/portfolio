@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&family=Manrope:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -39,9 +39,9 @@ a {
   background: #ffd3e5;
   color: #2a2024;
 }
-
 .font-serif {
-  font-family: "DM Serif Display", Georgia, serif;
+  font-family: "Varela Round", sans-serif;
+  font-weight: 1000;
 }
 
 .paper-texture {
@@ -99,12 +99,10 @@ a {
   width: 1.75rem;
   place-items: center;
   border-radius: 0.65rem;
-  border: 1px solid #f5c9d9;
   color: #ff6ea8;
 }
 
-.resume-button,
-.contact-link {
+.resume-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -115,83 +113,14 @@ a {
   font-weight: 900;
   color: white;
   box-shadow: 0 14px 30px rgba(255, 110, 168, 0.25);
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
 }
 
-.resume-button:hover,
-.contact-link:hover {
-  scale: 1.05;
-  box-shadow: 0 18px 40px rgba(255, 110, 168, 0.32);
-}
-
-.contact-link {
-  min-height: 4.5rem;
-  justify-content: space-between;
-  border: 1px solid #f5c9d9;
-  border-radius: 1.25rem;
-  background: rgba(255, 255, 255, 0.72);
-  color: #2a2024;
-  box-shadow: none;
-}
-
-.terminal-card,
-.paper-panel,
-.learning-card {
+.paper-panel {
   border: 1px solid #f5c9d9;
   border-radius: 1.5rem;
   background: rgba(255, 255, 255, 0.72);
   box-shadow: 0 18px 50px rgba(255, 141, 183, 0.12);
-}
-
-.terminal-card {
-  padding: 1.35rem;
-}
-
-.paper-panel,
-.learning-card {
   padding: 1.5rem;
-}
-
-.learning-card {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.86),
-      rgba(255, 241, 246, 0.86)
-    ),
-    #fff;
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease;
-}
-
-.learning-card:hover {
-  transform: translateY(-5px) rotate(-0.6deg);
-  box-shadow: 0 20px 55px rgba(255, 110, 168, 0.16);
-}
-
-.terminal-label {
-  margin-bottom: 0.35rem;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #ff6ea8;
-}
-
-.chip {
-  padding: 0.45rem 0.75rem;
-  font-size: 0.82rem;
-  color: #ff4f95;
-}
-
-.hero-desk {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .hero-desk img {
