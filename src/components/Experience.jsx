@@ -11,8 +11,8 @@ export default function Experience() {
         <h2 className="font-serif text-4xl text-[#1A1118]">
           Backend Engineering Intern
         </h2>
-        <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.12em] text-[#9E7B8E]">
-          Tata Consultancy Services • Siruseri, Chennai
+        <p className="my-2 font-mono font-bold text-xs uppercase tracking-[0.12em] text-[#9E7B8E]">
+          Tata Consultancy Services • May 2026 – Present
         </p>
         <ul className="mt-6 space-y-3 text-[#5C3D52]">
           <li className="flex gap-3">

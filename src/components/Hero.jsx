@@ -26,7 +26,7 @@ export default function Hero() {
 
       <div className="relative z-10 px-6 py-24 lg:px-36 lg:py-32">
         <div className="max-w-3xl">
-          <h1 className="font-serif text-[#151014] leading-[0.92] text-5xl lg:text-7xl">
+          <h1 className="font-serif font-extrabold text-[#151014] leading-[0.92] text-5xl lg:text-7xl">
             Full Stack Developer
           </h1>
 
@@ -34,14 +34,14 @@ export default function Hero() {
             with a love for backend and design
           </p>
 
-          <p className="mt-6 max-w-2xl text-base leading-8 text-[#493D42]">
-            CS student at VIT Chennai who builds efficient backend systems,
-            self-hosts production infrastructure on a server I actually manage,
-            and occasionally makes things{" "}
+          <p className="mt-6 max-w-2xl text-base font-medium leading-8 text-[#493D42]">
+            Hi, I'm Sivaranjani. I'm passionate about backend engineering,
+            infrastructure, and full-stack development. I enjoy building systems
+            from the ground up, deploying applications on servers, and
+            occasionally making things{" "}
             <span className="font-medium text-[#FF6EA8]">
               unreasonably pink
             </span>
-            .
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2">

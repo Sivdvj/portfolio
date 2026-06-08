@@ -32,7 +32,7 @@ function FeaturedProjectCard({ project }) {
         <h3 className="font-serif text-3xl leading-tight text-[#1A1118]">
           {project.title}
         </h3>
-        <p className="mt-3 text-sm leading-6 text-[#5C3D52]">
+        <p className="mt-3 text-md leading-6 text-[#5C3D52]">
           {project.summary}
         </p>
         <p className="mt-4 mb-4 border-l-2 border-[#F0A0B8] pl-3 text-sm italic leading-6 text-[#9E7B8E]">
