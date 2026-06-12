@@ -9,11 +9,16 @@
   background: var(--background);
 }
 
+* {
+  cursor: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  cursor: none;
   margin: 0;
   min-width: 320px;
   background:
