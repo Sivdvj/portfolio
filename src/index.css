@@ -9,10 +9,6 @@
   background: var(--background);
 }
 
-* {
-  cursor: none !important;
-}
-
 html {
   scroll-behavior: smooth;
 }
