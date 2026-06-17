@@ -1,5 +1,5 @@
 export default function Experience() {
-  const tech = ["Java", "Spring Boot", "PostgreSQL", "JWT", "Docker", "JPA"];
+  const tech = ["Java", "Spring Boot", "JWT", "Docker", "JPA"];
 
   return (
     <section id="experience" className="section-shell py-6">
@@ -18,27 +18,27 @@ export default function Experience() {
           <li className="flex gap-3">
             <span className="mt-2 h-2 w-2 rounded-full bg-[#E8527A]" />
             <span>
-              Built a microservices-based telecom e-commerce backend using
-              Spring Boot and Java, with separate Auth, Plan, Device, and AddOn
-              services communicating through REST APIs
+              Built a telecom e-commerce backend with Spring Boot, supporting
+              plans, devices, add-ons, bundle offers, cart management, checkout,
+              payments, and order processing
             </span>
           </li>
 
           <li className="flex gap-3">
             <span className="mt-2 h-2 w-2 rounded-full bg-[#E8527A]" />
             <span>
-              Implemented JWT-based authentication and Spring Security
-              role-based authorization, securing endpoints based on user roles
-              across service modules
+              Implemented dynamic pricing, coupon validation, bundle discount
+              calculation, inventory tracking, subscription management, plan
+              validity handling, and order history workflows
             </span>
           </li>
 
           <li className="flex gap-3">
             <span className="mt-2 h-2 w-2 rounded-full bg-[#E8527A]" />
             <span>
-              Integrated Redis caching for catalog endpoints to reduce repeated
-              database reads and improve response times for frequently accessed
-              plan and device data
+              Secured APIs using JWT authentication, Spring Security RBAC, DTO
+              validation, and microservice-based authentication with
+              inter-service REST communication
             </span>
           </li>
         </ul>
